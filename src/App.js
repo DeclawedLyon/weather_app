@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import DayDisplay from './components/DayDisplay';
+import WeekDisplay from './components/WeekDisplay';
 
 function App() {
   return (
     <div className="App">
-      <DayDisplay/>
+      <WeekDisplay/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
