@@ -11,7 +11,7 @@ export default function WeekDisplay(props) {
           low="-27"
           high="-10"
         />
-        <DayDisplay 
+        {/* <DayDisplay 
         date="Tuesday"
         icon="🍆"
         low="-27"
@@ -46,7 +46,7 @@ export default function WeekDisplay(props) {
         icon="🍆"
         low="-27"
         high="-10"
-      />
+      /> */}
     </div>
   )
 }
