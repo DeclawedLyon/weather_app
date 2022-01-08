@@ -1,52 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import DayDisplay from "./DayDisplay";
 
 export default function WeekDisplay(props) {
-  return (
-    <div>
-      Week Display:
-      <DayDisplay 
-          date="Monday"
-          icon="🍆"
-          low="-27"
-          high="-10"
+  const [weatherData, setWeatherData] = useState([])
+  const APIkey = 'c3e3e2fc9c4f9664552d6afaa0476548';
+  const lat = '50.72';
+  const lon = '-113.97'
+  const part = '';
+  let mappedForecast = ['<div> hello world </div>'];
+  
+  React.useEffect(() => {
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${part}&appid=${APIkey}`)
+    .then(res => mappedForecast = res.json())
+    .then(res => {setWeatherData(res)})
+  }, [])
+  console.log('state is: ',weatherData)
+  if (weatherData.length != 0) {
+    mappedForecast = weatherData.daily.map(dailyData => {
+      return (
+        <DayDisplay
+          date={dailyData.dt}
+          icon={dailyData.weather[0].description}
+          low={dailyData.temp.min}
+          high={dailyData.temp.max}
+          temp={dailyData.temp.day}
         />
-        {/* <DayDisplay 
-        date="Tuesday"
-        icon="🍆"
-        low="-27"
-        high="-10"
-      />
-      <DayDisplay 
-        date="Wednesday"
-        icon="🍆"
-        low="-27"
-        high="-10"
-      />
-      <DayDisplay 
-        date="Thursday"
-        icon="🍆"
-        low="-27"
-        high="-10"
-      />
-      <DayDisplay 
-        date="Friday"
-        icon="🍆"
-        low="-27"
-        high="-10"
-      />
-      <DayDisplay 
-        date="Saturday"
-        icon="🍆"
-        low="-27"
-        high="-10"
-      />
-      <DayDisplay 
-        date="Sunday"
-        icon="🍆"
-        low="-27"
-        high="-10"
-      /> */}
+      )
+    })
+  }
+
+  return (
+    <div className='week-container'>
+        <div>
+          {mappedForecast}
+        </div>
     </div>
   )
 }
