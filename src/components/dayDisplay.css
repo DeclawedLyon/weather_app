@@ -1,7 +1,13 @@
-#day-container {
+.week-container {
+  display: flex;
+  justify-content: center;
+  border: 5px solid green;
+}
+.day-container {
   border: 2px solid black;
 }
 #tempurature-range {
   display: flex;
+  justify-content: space-between;
   border: 2px solid black;
 }

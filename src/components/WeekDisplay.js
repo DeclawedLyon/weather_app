@@ -20,10 +20,12 @@ export default function WeekDisplay(props) {
       return (
         <DayDisplay
           date={dailyData.dt}
-          icon={dailyData.weather[0].description}
+          icon={dailyData.weather[0].icon}
+          description={dailyData.weather[0].description}
           low={dailyData.temp.min}
           high={dailyData.temp.max}
           temp={dailyData.temp.day}
+          iconURL={`http://openweathermap.org/img/wn/${dailyData.weather[0].icon}@2x.png`}
         />
       )
     })
@@ -31,9 +33,7 @@ export default function WeekDisplay(props) {
 
   return (
     <div className='week-container'>
-        <div>
-          {mappedForecast}
-        </div>
+      {mappedForecast}
     </div>
   )
 }
