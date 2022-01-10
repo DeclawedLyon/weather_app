@@ -31,7 +31,7 @@ export default function WeekDisplay(props) {
     })
   }
 
-  mappedForecast = mappedForecast.slice(0, 6)
+  mappedForecast = mappedForecast.slice(0, 5)
 
   return (
     <div className='week-container'>
