@@ -14,7 +14,7 @@ export default function WeekDisplay(props) {
     .then(res => mappedForecast = res.json())
     .then(res => {setWeatherData(res)})
   }, [])
-  console.log('state is: ',weatherData)
+
   if (weatherData.length != 0) {
     mappedForecast = weatherData.daily.map(dailyData => {
       return (
@@ -31,9 +31,13 @@ export default function WeekDisplay(props) {
     })
   }
 
+  mappedForecast = mappedForecast.slice(0, 6)
+
   return (
     <div className='week-container'>
-      {mappedForecast}
+      <div id='border-div'>
+        {mappedForecast}
+      </div>
     </div>
   )
 }

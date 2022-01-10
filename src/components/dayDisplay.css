@@ -1,13 +1,28 @@
 .week-container {
   display: flex;
-  justify-content: center;
-  border: 5px solid green;
+  height: 100vh;
+  width: 60vw;
+  align-items: center;
+  align-self: center;
+  margin: auto;
+}
+#border-div {
+  display: flex;
+  border: 2px solid rgb(209, 209, 209);
 }
 .day-container {
-  border: 2px solid black;
+  width: 6.5em;
+}
+.--today {
+  background-color: rgb(209, 209, 209);
 }
 #tempurature-range {
   display: flex;
-  justify-content: space-between;
-  border: 2px solid black;
+  justify-content: space-around;
+  font-size: 1em;
+  margin: 0.25rem;
+}
+.daily-high-temp {
+  margin-left: 0.5rem;
+  color: rgb(82, 80, 80);
 }
